@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const PORT = 3000
+const cors = require('cors')
 //importa conexão ao banco de dados
 const connectDB = require('./config/db')
 //deita o .env pra todas as pastas
@@ -14,8 +15,12 @@ connectDB()
 //formatação
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
-
-
+//cors
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+  }))
+  app.use(express.static("public"));
 
 
 

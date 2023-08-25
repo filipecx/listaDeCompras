@@ -5,7 +5,10 @@ const router = express.Router()
 
 
 router.get('/', (req, res) => {
-    res.send('Você está na tela de login')
+    console.log(req.body.usuario)
 })
 
+router.post('/', (req, res) => {
+    console.log(`Usuário: ${req.body.usuario} Senha: ${req.body.senha}`)
+})
 module.exports = router
