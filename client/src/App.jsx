@@ -15,7 +15,7 @@ function App() {
           <Col></Col>
           <Col sm={6}>
             <Routes>
-            <Route path='/' exact element={<Login />}/>
+            <Route path='/https://lista-de-compras-bay-alpha.vercel.app/' exact element={<Login />}/>
             <Route element={<ProtectedRout />}>
                 <Route path='/lista' element={<Lista />} />
             </Route>
