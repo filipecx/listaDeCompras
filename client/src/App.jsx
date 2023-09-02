@@ -15,9 +15,9 @@ function App() {
           <Col></Col>
           <Col sm={6}>
             <Routes>
-            <Route path='https://lista-de-compras-t86p.vercel.app/' exact element={<Login />}/>
+            <Route path='/' exact element={<Login />}/>
             <Route element={<ProtectedRout />}>
-                <Route path='https://lista-de-compras-t86p.vercel.app/lista' element={<Lista />} />
+                <Route path='/lista' element={<Lista />} />
             </Route>
             </Routes>
           </Col>
