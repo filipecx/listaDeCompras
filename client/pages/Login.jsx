@@ -3,26 +3,70 @@ import Button from 'react-bootstrap/Button'
 import { useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import Axios from 'axios'
+import Cookies from 'universal-cookie'
+import {Lista} from './Lista'
+import { Col, Container, Row } from 'react-bootstrap'
+const cookies = new Cookies(null, { path: '/' });
+
 export function Login() {
-    const [clicou, setClicou] = useState()
     const [usuario, setUsuario] = useState('')
     const [senha, setSenha] = useState('')
+    const [data, setData] = useState(null)
 
-    const mandaLogin = async (usuario, senha) => {
+    const mandaLogin = async (e, usuario, senha) => {
+        e.preventDefault()
         const formData = new FormData()
-        formData.append('usuario', usuario)
-        formData.append('senha', senha)
+        formData.append('username', usuario)
+        formData.append('password', senha)
 
         try{
-            Axios.post('http://localhost:3000/', formData, {
+            Axios.post('http://localhost:3000/login', formData, {
+                credentials: "same-origin",
                 withCredentials: true,
                 headers: {
                     'Content-Type' : 'application/json',
-                    'Access-Control-Allow-Origin': '*'
+                    'Access-Control-Allow-Origin': '*',
+                    'Accept': 'application/json'
                 }
             })
             .then((response) => {
-                console.log(response)
+                if(response.data == 'No User Exists'){
+                    console.log('no')
+                }
+                else{
+                    console.log(response)
+                    setData(response.data);
+                    cookies.set('faustao', 'olokobicho')
+                }
+            })
+        }catch(error){
+            console.log(error)
+        }
+    }
+
+    const mandaRegistro = async (e, usuario, senha) => {
+        e.preventDefault()
+        const formData = new FormData()
+        formData.append('username', usuario)
+        formData.append('password', senha)
+
+        try{
+            Axios.post('http://localhost:3000/register', formData, {
+                credentials: "same-origin",
+                withCredentials: true,
+                headers: {
+                    'Content-Type' : 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Accept': 'application/json'
+                }
+            })
+            .then((response) => {
+                if(response.data == 'Usuário já existe'){
+                    console.log('no')
+                }
+                else{
+                    console.log(response)
+                }
             })
         }catch(error){
             console.log(error)
@@ -31,21 +75,29 @@ export function Login() {
 
     return(
         <div>
-            {clicou ? <Navigate to='/lista' /> :
-            <Form>
-                <Form.Group>
-                    <Form.Label>Usuário: </Form.Label>
-                    <Form.Control type='text' placeholder='Insira seu usário' onChange={(e) => setUsuario(e.target.value)}/>
+            <Form className='mx-3'>
+                <Form.Group >
+                    <Form.Control type='text' placeholder='Insira seu usário' className='my-2' onChange={(e) => setUsuario(e.target.value)}/>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Senha: </Form.Label>
-                    <Form.Control type='text' placeholder='Insira sua senha' onChange={(e) => setSenha(e.target.value)} />
+                    <Form.Control type='password' placeholder='Insira sua senha' className='my-2' onChange={(e) => setSenha(e.target.value)} />
                 </Form.Group>
-                <Button variant='primary' onClick={() => mandaLogin(usuario, senha)}>
-                    Login
-                </Button>
+                <Container>
+                    <Row >
+                        <Col className='d-flex justify-content-between align-items-baseline'>
+                            <Button variant='primary'   onClick={(e) => mandaLogin(e, usuario, senha)}>
+                                Login
+                            </Button>
+                            <Button variant='primary'  onClick={(e) => mandaRegistro(e, usuario, senha)}>
+                                Registrar
+                            </Button>
+                    </Col>
+                    </Row>
+                    
+                </Container>
             </Form>
-            }
+            {data ? <Navigate to='/lista'/>:null}
+
             
         </div>
         

@@ -1,0 +1,37 @@
+body {
+    background-color: rgba(26, 53, 11, 0.685) !important;
+}
+
+body h4 {
+  color: #051f02af;
+}
+
+body .btn-primary {
+    background-color: rgba(11, 63, 6, 0.685);
+    color: white;
+    border: none;
+  }
+
+body .btn-primary:hover {
+    background-color: #051f02af;
+    color: white;
+    border-color: #051f02af;
+  }
+
+body .trash{
+    background: none;
+    border: none;
+    color: #051f02af;
+}
+
+body .divLogout{
+  display: flex;
+  align-items: flex-end;
+  background-color: red;
+}
+
+body .logout{
+  background: none;
+  border: none;
+  color: white;
+}

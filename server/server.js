@@ -1,8 +1,18 @@
-const express = require('express')
-const app = express()
-const mongoose = require('mongoose')
+const MongoStore = require('connect-mongo')
 const PORT = 3000
-const cors = require('cors')
+const mongoose = require("mongoose");
+const express = require("express");
+const cors = require("cors");
+const passport = require("passport");
+const passportLocal = require("passport-local").Strategy;
+const cookieParser = require("cookie-parser");
+const bcrypt = require("bcryptjs");
+const session = require("express-session");
+const bodyParser = require("body-parser");
+const app = express();
+const User = require("./models/User");
+const mainRoutes = require('./routes/mainRoutes')
+const listaRoutes = require('./routes/listaRoutes')
 //importa conexão ao banco de dados
 const connectDB = require('./config/db')
 //deita o .env pra todas as pastas
@@ -13,20 +23,31 @@ connectDB()
 
 
 //formatação
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
+
 //cors
 app.use(cors({
     origin: 'http://localhost:5173',
     credentials: true
   }))
-  app.use(express.static("public"));
+  app.use(express.static("public"))
 
+  //app.use(express.static(path.join(__dirname, 'public')))
+  app.use(session({
+        secret: process.env.SECRET,
+        resave: false,
+        saveUninitialized: true,
+       // store: MongoStore.create({mongoUrl: process.env.DB_STRING})
+    })
+  )
+app.use(cookieParser(process.env.SECRET))  
+app.use(passport.initialize())
+app.use(passport.session())
+require('./config/passport')(passport)  
 
-
-//importa as rotas
-const mainRoutes = require('./routes/mainRoutes')
-const listaRoutes = require('./routes/listaRoutes')
 
 //utiliza as rotas do servidor
 app.use('/', mainRoutes)

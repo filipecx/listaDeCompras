@@ -1,14 +1,17 @@
 const express = require('express')
+const mainControllers = require('../controllers/mainControllers')
+const { authenticate } = require('passport')
 const router = express.Router()
 
 //importando controllers
 
 
-router.get('/', (req, res) => {
-    console.log(req.body.usuario)
-})
+router.get('/user',  mainControllers.getLogin)
 
-router.post('/', (req, res) => {
-    console.log(`Usuário: ${req.body.usuario} Senha: ${req.body.senha}`)
-})
+router.post('/login', mainControllers.postLogin)
+
+router.post('/register', mainControllers.register)
+
+router.post('/logout', mainControllers.deslogar)
+
 module.exports = router
