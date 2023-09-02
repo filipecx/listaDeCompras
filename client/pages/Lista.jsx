@@ -31,7 +31,7 @@ export function Lista(){
     }
     const pegaLista = async () => {
         try{
-            await Axios.get('http://localhost:3000/lista', {
+            await Axios.get('https://lista-de-compras-chi.vercel.app/lista', {
                 credentials: "same-origin",
                 withCredentials: true,    
                 headers: {
@@ -57,7 +57,7 @@ export function Lista(){
         setItens(novosItens)
         setTitulo('')
         try{
-            await Axios.post('http://localhost:3000/lista/adicionarItem', {
+            await Axios.post('https://lista-de-compras-chi.vercel.app/lista/adicionarItem', {
                 titulo: titulo,
             })
             .then((response) => console.log(response))
@@ -73,7 +73,7 @@ export function Lista(){
         setItens(novosItens)
 
         try{
-            await Axios.delete(`http://localhost:3000/lista/deletarItem/${id}`)
+            await Axios.delete(`https://lista-de-compras-chi.vercel.app/lista/deletarItem/${id}`)
             .then((res) => console.log(res))
         }catch(error){
             console.log(error)
@@ -82,7 +82,7 @@ export function Lista(){
     const logOut = async () => {
         
         try{
-            await Axios.post('http://localhost:3000/logout')
+            await Axios.post('https://lista-de-compras-chi.vercel.app/logout')
             .then((res) => {
                 navigate('/')
                 cookies.remove('faustao')
@@ -94,7 +94,7 @@ export function Lista(){
     }
     const finalizarLista = async () => {
         try{
-            await Axios.delete(`http://localhost:3000/lista/finalizarLista/${itens[0].autor}`)
+            await Axios.delete(`https://lista-de-compras-chi.vercel.app/lista/finalizarLista/${itens[0].autor}`)
             .then((res) => console.log(res))
             setItens([])
         }catch(error){

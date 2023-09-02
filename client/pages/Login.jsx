@@ -51,7 +51,7 @@ export function Login() {
         formData.append('password', senha)
 
         try{
-            Axios.post('http://localhost:3000/register', formData, {
+            Axios.post('https://lista-de-compras-chi.vercel.app/register', formData, {
                 credentials: "same-origin",
                 withCredentials: true,
                 headers: {
@@ -96,7 +96,7 @@ export function Login() {
                     
                 </Container>
             </Form>
-            {data ? <Navigate to='/lista'/>:null}
+            {data ? <Navigate to='https://lista-de-compras-t86p.vercel.app/lista'/>:null}
 
             
         </div>
