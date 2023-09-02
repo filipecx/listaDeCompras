@@ -20,7 +20,7 @@ export function Login() {
         formData.append('password', senha)
 
         try{
-            Axios.post('http://localhost:3000/login', formData, {
+            Axios.post('https://lista-de-compras-chi.vercel.app/login', formData, {
                 credentials: "same-origin",
                 withCredentials: true,
                 headers: {
