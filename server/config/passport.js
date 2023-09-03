@@ -21,9 +21,7 @@ module.exports = async function initialize(passport) {
               return done(null, false);
             }
           });
-        })
-        //console.log(usuario.password)
-        
+        })    
       }catch(error){
         
         done(error)
