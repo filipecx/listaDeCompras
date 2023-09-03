@@ -15,6 +15,7 @@ module.exports = {
           req.logIn(user, async (err) => {
             if (err) throw err;
             await req.session.save()
+            res.send('user')
             res.redirect('/user')
           });
         }
