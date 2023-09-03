@@ -57,7 +57,8 @@ export function Login() {
                 headers: {
                     'Content-Type' : 'application/json',
                     'Access-Control-Allow-Origin': '*',
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'Access-Control-Request-Method': 'POST'
                 }
             })
             .then((response) => {
