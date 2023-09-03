@@ -15,8 +15,8 @@ module.exports = {
           req.logIn(user, async (err) => {
             if (err) throw err;
             await req.session.save()
-            res.send('ola')
-            //res.redirect('/user')
+            res.status(200).send('ola')
+            res.redirect('/user')
           });
         }
       })(req, res, next)
