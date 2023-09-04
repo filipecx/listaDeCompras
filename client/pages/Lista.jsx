@@ -31,25 +31,22 @@ export function Lista(){
     }
     const pegaLista = async () => {
         try{
-            {/*
+            
             await Axios.get('https://lista-de-compras-chi.vercel.app/lista', {
                 credentials: "same-origin",
-                withCredentials: true,    
+                withCredentials: false,    
                 headers: {
                     'Content-Type' : 'application/json',
                     'Accept': 'application/json',
-                    'Access-Control-Request-Method': 'GET'
+                    'Access-Control-Request-Headers': 'Content-Type'
                 }
             })
                 .then((response) => {
                     setItens(response.data)
                     console.log(response.data)
                 })
-            */}
-            await Axios.get('https://lista-de-compras-chi.vercel.app/lista')
-            .then((response) => {
-                console.log(response.data)
-            })    
+            
+            
         }catch(error){
             console.log(error)
         }
