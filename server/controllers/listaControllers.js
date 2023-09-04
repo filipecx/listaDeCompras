@@ -8,10 +8,10 @@ module.exports = {
             //usuario = req.user
             res.json(item)
         }catch(error){
+            
             console.log(error)
+            res.send(error)
         }
-        
-
     },
 
     adicionarItem: async (req, res) => {
