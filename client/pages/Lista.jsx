@@ -35,7 +35,9 @@ export function Lista(){
                 credentials: "same-origin",
                 withCredentials: true,    
                 headers: {
-                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type' : 'application/json',
+                    'Accept': 'application/json',
+                    'Access-Control-Request-Method': 'POST'
                 }
                 })
                 .then((response) => {
