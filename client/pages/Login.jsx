@@ -25,7 +25,8 @@ export function Login() {
                 withCredentials: true,
                 headers: {
                     'Content-Type' : 'application/json',
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'Access-Control-Request-Method': 'POST'
                 }
             })
             .then((response) => {

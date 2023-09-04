@@ -14,9 +14,13 @@ module.exports = {
         else {
           req.logIn(user, async (err) => {
             if (err) throw err;
-            await req.session.save()
-            res.status(200).send('ola')
-            res.redirect('/user')
+            try{
+              await req.session.save()
+              res.status(200).send('ola')
+              res.redirect('/user')
+            }catch(error){
+              console.log(error)
+            }      
           });
         }
       })(req, res, next)
