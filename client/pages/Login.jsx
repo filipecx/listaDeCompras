@@ -56,7 +56,6 @@ export function Login() {
                 withCredentials: true,
                 headers: {
                     'Content-Type' : 'application/json',
-                    'Access-Control-Allow-Origin': '*',
                     'Accept': 'application/json',
                     'Access-Control-Request-Method': 'POST'
                 }
