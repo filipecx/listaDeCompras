@@ -17,7 +17,7 @@ module.exports = {
     adicionarItem: async (req, res) => {
         const novoItem = new Item({
             titulo: req.body.titulo,
-            autor: usuario,
+            autor: req.user,
             completo: 'false'
         })  
         await novoItem.save()
