@@ -37,7 +37,7 @@ export function Lista(){
                 headers: {
                     'Content-Type' : 'application/json',
                     'Accept': 'application/json',
-                    'Access-Control-Request-Method': 'POST'
+                    'Access-Control-Request-Method': 'GET'
                 }
                 })
                 .then((response) => {
