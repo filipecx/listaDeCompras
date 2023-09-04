@@ -96,7 +96,7 @@ export function Login() {
                     
                 </Container>
             </Form>
-            {data ? <Navigate to='https://lista-de-compras-t86p.vercel.app/lista'/>:null}
+            {data ? <Navigate to='/lista'/>:null}
 
             
         </div>
