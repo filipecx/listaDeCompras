@@ -33,7 +33,7 @@ app.use(cors({
     origin: 'https://lista-de-compras-t86p.vercel.app',
     credentials: true,
     methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
-    allowedHeaders:"Content-Type, Accept, X-Requested-With"
+    allowedHeaders:"Content-Type, Accept, X-Requested-With, Access-Control-Allow-Origin"
   }))
   app.use(express.static("public"))
 
