@@ -31,6 +31,7 @@ export function Lista(){
     }
     const pegaLista = async () => {
         try{
+            {/*
             await Axios.get('https://lista-de-compras-chi.vercel.app/lista', {
                 credentials: "same-origin",
                 withCredentials: true,    
@@ -39,11 +40,16 @@ export function Lista(){
                     'Accept': 'application/json',
                     'Access-Control-Request-Method': 'GET'
                 }
-                })
+            })
                 .then((response) => {
                     setItens(response.data)
                     console.log(response.data)
                 })
+            */}
+            await Axios.get('https://lista-de-compras-chi.vercel.app/lista')
+            .then((response) => {
+                console.log(response.data)
+            })    
         }catch(error){
             console.log(error)
         }
