@@ -3,10 +3,15 @@ let usuario = ''
 
 module.exports = {
     getLista: async (req, res) => {
-        const item = await Item.find({autor: `${req.user}`})
-        usuario = req.user
-      
-        res.json(item)
+        try{
+            const item = await Item.find({autor: `${req.user}`})
+            usuario = req.user
+          
+            res.json(item)
+        }catch(error){
+            console.log(error)
+        }
+        
 
     },
 
