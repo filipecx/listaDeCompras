@@ -30,7 +30,7 @@ app.use(express.json())
 
 //cors
 app.use(cors({
-    origin: 'https://lista-de-compras-t86p.vercel.app',
+    origin: ['https://lista-de-compras-t86p.vercel.app', 'https://lista-de-compras-t86p.vercel.app/lista'],
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders:"Origin, Content-Type, Access-Control-Allow-Headers, Access-Control-Allow-Headers, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
