@@ -4,9 +4,8 @@ let usuario = ''
 module.exports = {
     getLista: async (req, res) => {
         try{
-            const item = await Item.find({autor: `${req.user}`})
-            usuario = req.user
-          
+            const item = await Item.find({autor: `filipe`})
+            //usuario = req.user
             res.json(item)
         }catch(error){
             console.log(error)
