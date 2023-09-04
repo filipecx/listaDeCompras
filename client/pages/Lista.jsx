@@ -33,8 +33,7 @@ export function Lista(){
         try{
             
             await Axios.get('https://lista-de-compras-chi.vercel.app/lista', {
-                credentials: "same-origin",
-                withCredentials: false,    
+                
                 headers: {
                     'Content-Type' : 'application/json',
                     'Accept': 'application/json',
