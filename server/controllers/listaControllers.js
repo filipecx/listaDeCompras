@@ -4,7 +4,7 @@ let usuario = ''
 module.exports = {
     getLista: async (req, res) => {
         try{
-            const item = await Item.find({autor: 'filipe'})
+            const item = await Item.find({autor: req.user})
             //usuario = req.user
             res.json(item)
         }catch(error){
@@ -17,7 +17,7 @@ module.exports = {
     adicionarItem: async (req, res) => {
         const novoItem = new Item({
             titulo: req.body.titulo,
-            autor: 'filipe',
+            autor: req.user,
             completo: 'false'
         })  
         await novoItem.save()
