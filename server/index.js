@@ -30,7 +30,8 @@ app.use(express.json())
 
 //cors
 app.use(cors({
-  origin: ['https://lista-de-compras-t86p.vercel.app', 'https://lista-de-compras-t86p.vercel.app/lista']
+  origin: ['https://lista-de-compras-t86p.vercel.app', 'https://lista-de-compras-t86p.vercel.app/lista'],
+  credentials: true
 }))
 app.use(express.static("public"))
 
