@@ -20,15 +20,7 @@ export function Login() {
         formData.append('password', senha)
 
         try{
-            Axios.post('https://lista-de-compras-chi.vercel.app/login', formData, {
-                credentials: "same-origin",
-                withCredentials: true,
-                headers: {
-                    'Content-Type' : 'application/json',
-                    'Accept': 'application/json',
-                    'Access-Control-Request-Method': 'POST'
-                }
-            })
+            Axios.post('https://lista-de-compras-chi.vercel.app/login', formData)
             .then((response) => {
                 if(response.data == 'No User Exists'){
                     console.log('no')
@@ -51,15 +43,7 @@ export function Login() {
         formData.append('password', senha)
 
         try{
-            Axios.post('https://lista-de-compras-chi.vercel.app/register', formData, {
-                credentials: "same-origin",
-                withCredentials: true,
-                headers: {
-                    'Content-Type' : 'application/json',
-                    'Accept': 'application/json',
-                    'Access-Control-Request-Method': 'POST'
-                }
-            })
+            Axios.post('https://lista-de-compras-chi.vercel.app/register', formData)
             .then((response) => {
                 if(response.data == 'Usuário já existe'){
                     console.log('no')
