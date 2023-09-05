@@ -32,7 +32,7 @@ export function Lista(){
     const pegaLista = async () => {
         try{
             
-            await Axios.get('https://lista-de-compras-chi.vercel.app/lista')
+            await Axios.get('https://lista-de-compras-chi.vercel.app/lista/')
                 .then((response) => {
                     setItens(response.data)
                     console.log(response.data)
