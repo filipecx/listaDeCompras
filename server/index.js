@@ -29,7 +29,9 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
 //cors
-app.use(cors())
+app.use(cors({
+  origin: 'https://lista-de-compras-t86p.vercel.app'
+}))
 app.use(express.static("public"))
 
   //app.use(express.static(path.join(__dirname, 'public')))
