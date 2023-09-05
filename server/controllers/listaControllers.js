@@ -5,7 +5,7 @@ module.exports = {
     getLista: async (req, res) => {
         try{
             const item = await Item.find({autor: req.user})
-            //usuario = req.user
+            usuario = req.user
             res.json(item)
         }catch(error){
             
@@ -17,7 +17,7 @@ module.exports = {
     adicionarItem: async (req, res) => {
         const novoItem = new Item({
             titulo: req.body.titulo,
-            autor: req.user,
+            autor: usuario,
             completo: 'false'
         })  
         await novoItem.save()
