@@ -20,7 +20,11 @@ export function Login() {
         formData.append('password', senha)
 
         try{
-            Axios.post('https://lista-de-compras-chi.vercel.app/login', formData)
+            Axios.post('https://lista-de-compras-chi.vercel.app/login', formData, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
             .then((response) => {
                 if(response.data == 'No User Exists'){
                     console.log('no')
