@@ -6,7 +6,9 @@ const router = express.Router()
 //importando controllers
 
 
-router.get('/user',  mainControllers.getLogin)
+router.get('/',  mainControllers.getHome)
+router.get('/login',  mainControllers.getLogin)
+router.get('/register',  mainControllers.getRegister)
 
 router.post('/login', mainControllers.postLogin)
 

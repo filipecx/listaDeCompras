@@ -1,37 +1,56 @@
 const Item = require('../models/Item')
-let usuario = ''
 
 module.exports = {
     getLista: async (req, res) => {
         try{
             const item = await Item.find({autor: req.user})
-            usuario = req.user
-            res.json(item)
-        }catch(error){
-            
+            res.render('lista', {itens: item, usuario: req.user})
+        }catch(error){          
             console.log(error)
-            res.send(error)
         }
     },
 
     adicionarItem: async (req, res) => {
+        console.log(req.user)
         const novoItem = new Item({
             titulo: req.body.titulo,
-            autor: usuario,
+            autor: req.user,
             completo: 'false'
         })  
         await novoItem.save()
-        console.log('o usuario: ' + usuario)
-        res.send('Item adicionado')
+        console.log('o usuario: ' + req.user)
+        res.redirect('/lista')
     },
 
     deletarItem: async (req, res) => {
-        await Item.deleteOne({_id: req.params.id})
-        res.send('Item deletado')
+        try{
+            console.log(req.body.itemIDFromJSFile)
+            await Item.deleteOne({_id: req.body.itemIDFromJSFile})
+            res.json('Item deletado')
+        }catch(error){
+            console.log(error)
+        }
+    },
+    completarItem: async (req, res) => {
+        try{
+            console.log(req.body.itemIDFromJSFile)
+            await Item.findByIdAndUpdate(req.body.itemIDFromJSFile, {completo: 'true'})
+            res.json('Completo')
+        }catch(error){
+            console.log(error)
+        }
+    },
+    incompletarItem: async (req, res) => {
+        try{
+            await Item.findByIdAndUpdate(req.body.itemIDFromJSFile, {completo: 'false'})
+            res.json('Incompleto')
+        }catch(error){
+            console.log(error)
+        }
     },
 
     finalizarLista: async (req, res) => {
-        await Item.deleteMany({autor: req.params.autor})
-        res.send('Lista finalizada')
+        await Item.deleteMany({autor: req.user})
+        res.json('Lista finalizada')
     }
 }

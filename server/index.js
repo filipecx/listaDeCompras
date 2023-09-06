@@ -21,7 +21,7 @@ require('dotenv').config({path: './config/.env'})
 //conecta ao banco de dados
 connectDB()
 
-
+app.set('view engine', 'ejs')
 //formatação
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -29,13 +29,11 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
 //cors
-app.use(cors({
-  origin: ['https://lista-de-compras-t86p.vercel.app', 'https://lista-de-compras-t86p.vercel.app/lista']
-}))
+app.use(cors())
 app.use(express.static("public"))
 
-  //app.use(express.static(path.join(__dirname, 'public')))
-  app.use(session({
+//app.use(express.static(path.join(__dirname, 'public')))
+app.use(session({
         secret: process.env.SECRET,
         resave: false,
         saveUninitialized: true,

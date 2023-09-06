@@ -2,13 +2,14 @@
   "name": "lista-de-compras",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
-  "engines":{
+  "main": "index.js",
+  "engines": {
     "node": "18.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon"
   },
   "author": "Filipe",
   "license": "ISC",
@@ -20,10 +21,12 @@
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "mongoose": "^7.4.4",
     "morgan": "^1.10.0",
+    "nodemon": "^3.0.1",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
   }

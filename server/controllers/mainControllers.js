@@ -3,21 +3,27 @@ const User = require('../models/User')
 const bcrypt = require('bcryptjs')
 
 module.exports = {
-    getLogin: (req, res) => {
-        res.send(req.user)
+    getHome: (req, res) => {
+        res.render('home.ejs')
     },
 
-    postLogin: function(req, res, next){   
+    getLogin: (req, res) => {
+      res.render('login.ejs')
+    },
+    getRegister: (req, res) => {
+      res.render('register.ejs')
+    },
+
+    postLogin: function(req, res, next){
       passport.authenticate("local", (err, user, info) => {
         if (err) throw err;
-        if (!user) res.send("No User Exists");
+        if (!user) res.redirect('/');
         else {
           req.logIn(user, async (err) => {
             if (err) throw err;
             try{
               await req.session.save()
-              res.status(200).send('ola')
-              res.redirect('/user')
+              res.redirect('/lista')
             }catch(error){
               console.log(error)
             }      
@@ -37,7 +43,7 @@ module.exports = {
             password: hashedPassword,
           });         
           await newUser.save();
-          res.send("User Created");
+          res.redirect('/lista')
         }
       }
       catch(error){
@@ -48,7 +54,8 @@ module.exports = {
     deslogar: async function(req, res, next){
         req.logout(function(err) {
           if(err) { return next(err)}
-          res.send('deslogado')
+          res.send('saiu')
+          res.redirect('/')
         })
     }
 }

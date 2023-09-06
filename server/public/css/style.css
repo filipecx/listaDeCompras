@@ -1,0 +1,148 @@
+body {
+    background-color: rgba(2, 37, 12, 0.726);
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    background-color: white;
+}
+
+ul {
+    width: 100%;
+    list-style-type: none;
+}
+
+ul li {
+    cursor: pointer;
+    width: 100%;
+    
+}
+
+ul span {
+    display: block;
+    
+}
+
+ul p{
+    font-size: 25px;
+}
+
+.dentro{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-right: 30px;
+}
+.form {
+   padding: 2px;
+   display: flex;
+   display: block;
+}
+
+.completo {
+    text-decoration: line-through;
+}
+
+.novoItem {
+    padding: 10px 20px;
+    color: black;
+    width: 100%;
+    margin: 8px;
+    box-sizing: border-box;
+}
+
+.divadd {
+    display: flex;
+    justify-content: end;
+}
+
+.adicionar {
+    background-color: #8dd38f;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+.finalizarLista{
+   text-align: center;
+}
+.finaliza {
+    background-color: #f57893;
+    border: none;
+    text-decoration: none;
+    padding: 5px 10px;
+    color: white;
+    width: 80%;
+    margin: 8px;
+    border-radius: 5px;
+}
+.finaliza p{
+    font-size: 16px;
+}
+
+form .label {
+    font-size: 16px;
+}
+
+#usuario {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+}
+
+.enviar {
+    background-color: rgb(90, 204, 135);
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    width: 100%;
+}
+
+label {
+    color: rgb(199, 214, 205);
+}
+h1{
+    color: rgb(199, 214, 205);
+}
+
+p{
+    color: rgb(199, 214, 205);
+}
+
+.inicial {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    margin-right: 30px;
+}
+
+a {
+    background-color:   rgb(90, 204, 135);
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+}
+
+
+.icone {
+    display: flex;
+    justify-content: end;
+
+}
+.fa-sign-out {
+    color: white;
+    align-items: end;
+}

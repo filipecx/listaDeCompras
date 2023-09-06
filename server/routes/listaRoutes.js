@@ -9,8 +9,12 @@ router.get('/', listaControllers.getLista)
 
 router.post('/adicionarItem', listaControllers.adicionarItem)
 
-router.delete('/deletarItem/:id', listaControllers.deletarItem)
+router.delete('/deletarItem', listaControllers.deletarItem)
 
-router.delete('/finalizarLista/:autor', listaControllers.finalizarLista)
+router.delete('/finalizarLista', listaControllers.finalizarLista)
+
+router.put('/completarItem', listaControllers.completarItem)
+
+router.put('/incompletarItem', listaControllers.incompletarItem)
 
 module.exports = router
