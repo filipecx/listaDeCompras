@@ -20,7 +20,7 @@ require('dotenv').config({path: './config/.env'})
 
 //conecta ao banco de dados
 connectDB()
-
+app.set('views', './views')
 app.set('view engine', 'ejs')
 //formatação
 app.use(bodyParser.json())
