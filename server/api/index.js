@@ -10,18 +10,18 @@ const bcrypt = require("bcryptjs");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const app = express();
-const User = require("./models/User");
-const mainRoutes = require('./routes/mainRoutes')
-const listaRoutes = require('./routes/listaRoutes')
+const User = require("../models/User");
+const mainRoutes = require('../routes/mainRoutes')
+const listaRoutes = require('../routes/listaRoutes')
 //importa conexão ao banco de dados
-const connectDB = require('./config/db')
+const connectDB = require('../config/db')
 //deita o .env pra todas as pastas
 require('dotenv').config({path: './config/.env'})
 
 //conecta ao banco de dados
 connectDB()
 app.set('view engine', 'ejs')
-app.set('views', './views')
+app.set('views', '../views')
 
 //formatação
 app.use(bodyParser.json())
@@ -44,7 +44,7 @@ app.use(session({
 app.use(cookieParser(process.env.SECRET))  
 app.use(passport.initialize())
 app.use(passport.session())
-require('./config/passport')(passport)  
+require('../config/passport')(passport)  
 
 
 //utiliza as rotas do servidor
