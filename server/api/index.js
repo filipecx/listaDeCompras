@@ -16,7 +16,7 @@ const listaRoutes = require('../routes/listaRoutes')
 //importa conexão ao banco de dados
 const connectDB = require('../config/db')
 //deita o .env pra todas as pastas
-require('dotenv').config({path: './config/.env'})
+require('dotenv').config({path: '../config/.env'})
 
 //conecta ao banco de dados
 connectDB()
@@ -31,9 +31,9 @@ app.use(express.json())
 
 //cors
 app.use(cors())
-app.use(express.static("public"))
+//app.use(express.static("public"))
+app.use("../", express.static('public'))
 
-//app.use(express.static(path.join(__dirname, 'public')))
 app.use(session({
         secret: process.env.SECRET,
         resave: false,
