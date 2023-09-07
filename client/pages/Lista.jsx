@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons"
 import Cookies from 'universal-cookie'
 const cookies = new Cookies(null, { path: '/' });
-
+const baseUrl = ''
 export function Lista(){
     const navigate = useNavigate()
     const [titulo, setTitulo] = useState('')

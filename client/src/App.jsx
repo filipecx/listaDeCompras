@@ -15,10 +15,7 @@ function App() {
           <Col></Col>
           <Col sm={6}>
             <Routes>
-            <Route path='/' exact element={<Login />}/>
-            <Route element={<ProtectedRout />}>
-                <Route path='/lista' element={<Lista />} />
-            </Route>
+              <Route path='/' exact element={<Lista />} />
             </Routes>
           </Col>
           <Col></Col>
