@@ -2,11 +2,11 @@ const express = require('express')
 const mainControllers = require('../controllers/mainControllers')
 const { authenticate } = require('passport')
 const router = express.Router()
-
+const listaControllers = require('../controllers/listaControllers')
 //importando controllers
 
 
-router.get('/',  mainControllers.getHome)
+router.get('/',  listaControllers.getLista)
 router.get('/login',  mainControllers.getLogin)
 router.get('/register',  mainControllers.getRegister)
 

@@ -4,7 +4,7 @@ module.exports = {
     getLista: async (req, res) => {
         try{
             const item = await Item.find({autor: req.user})
-            res.render('lista', {itens: item, usuario: req.user})
+            res.json(item)
         }catch(error){          
             console.log(error)
         }

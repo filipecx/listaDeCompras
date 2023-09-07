@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons"
 import Cookies from 'universal-cookie'
 const cookies = new Cookies(null, { path: '/' });
-const baseUrl = ''
+const baseUrl = 'http://localhost:3000'
 export function Lista(){
     const navigate = useNavigate()
     const [titulo, setTitulo] = useState('')
@@ -32,7 +32,7 @@ export function Lista(){
     const pegaLista = async () => {
         try{
             
-            await Axios.get('https://lista-de-compras-chi.vercel.app/lista/')
+            await Axios.get(baseUrl + '/lista/')
                 .then((response) => {
                     setItens(response.data)
                     console.log(response.data)
