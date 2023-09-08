@@ -24,8 +24,7 @@ module.exports = {
 
     deletarItem: async (req, res) => {
         try{
-            console.log(req.body.itemIDFromJSFile)
-            await Item.deleteOne({_id: req.body.itemIDFromJSFile})
+            await Item.deleteOne({_id: req.body.id})
             res.json('Item deletado')
         }catch(error){
             console.log(error)
@@ -33,8 +32,7 @@ module.exports = {
     },
     completarItem: async (req, res) => {
         try{
-            console.log(req.body.itemIDFromJSFile)
-            await Item.findByIdAndUpdate(req.body.itemIDFromJSFile, {completo: 'true'})
+            await Item.findByIdAndUpdate(req.body.id, {completo: 'true'})
             res.json('Completo')
         }catch(error){
             console.log(error)

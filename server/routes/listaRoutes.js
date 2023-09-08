@@ -9,7 +9,7 @@ router.get('/', listaControllers.getLista)
 
 router.post('/adicionarItem', listaControllers.adicionarItem)
 
-router.delete('/deletarItem', listaControllers.deletarItem)
+router.delete('/deletarItem/:id', listaControllers.deletarItem)
 
 router.delete('/finalizarLista', listaControllers.finalizarLista)
 
