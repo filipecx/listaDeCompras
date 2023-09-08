@@ -91,7 +91,7 @@ export function Lista(){
     }
     const finalizarLista = async () => {
         try{
-            await Axios.delete(baseUrl + `/lista/finalizarLista/${itens[0].autor}`)
+            await Axios.delete(baseUrl + `/lista/finalizarLista`)
             .then((res) => console.log(res))
             setItens([])
         }catch(error){
