@@ -54,7 +54,7 @@ export function Lista(){
         setItens(novosItens)
         setTitulo('')
         try{
-            await Axios.post('https://lista-de-compras-chi.vercel.app/lista/adicionarItem', {
+            await Axios.post(baseUrl + '/lista/adicionarItem', {
                 titulo: titulo,
             })
             .then((response) => console.log(response))
@@ -70,7 +70,7 @@ export function Lista(){
         setItens(novosItens)
 
         try{
-            await Axios.delete(`https://lista-de-compras-chi.vercel.app/lista/deletarItem/${id}`)
+            await Axios.delete(baseUrl + `/lista/deletarItem/${id}`)
             .then((res) => console.log(res))
         }catch(error){
             console.log(error)
@@ -91,7 +91,7 @@ export function Lista(){
     }
     const finalizarLista = async () => {
         try{
-            await Axios.delete(`https://lista-de-compras-chi.vercel.app/lista/finalizarLista/${itens[0].autor}`)
+            await Axios.delete(baseUrl + `/lista/finalizarLista/${itens[0].autor}`)
             .then((res) => console.log(res))
             setItens([])
         }catch(error){
