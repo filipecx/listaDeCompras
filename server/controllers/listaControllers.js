@@ -48,7 +48,7 @@ module.exports = {
     },
 
     finalizarLista: async (req, res) => {
-        await Item.deleteMany({autor: req.user})
+        await Item.deleteMany({ })
         res.json('Lista finalizada')
     }
 }
